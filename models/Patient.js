@@ -37,7 +37,6 @@ const PatientSchema = new mongoose.Schema({
     registrationType: String,
     consultant: String,
     department: String,
-    time: String,
-});
+}, { timestamps: { createdAt: 'creationDate', updatedAt: 'lastUpdated' } });
 
 export default mongoose.models.Patient || mongoose.model('Patient', PatientSchema);

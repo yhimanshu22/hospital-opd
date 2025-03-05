@@ -6,10 +6,10 @@ export default function Home() {
     <div className="p-4">
       <h1 className="text-2xl font-bold">Welcome to the Hospital System</h1>
       <div className="mt-4">
-        <Link href="/signin" className="mr-4 text-blue-500">
+        <Link href="/auth/signin" className="mr-4 text-blue-500">
           Sign In
         </Link>
-        <Link href="/signup" className="text-green-500">
+        <Link href="/auth/signup" className="text-green-500">
           Sign Up
         </Link>
       </div>
