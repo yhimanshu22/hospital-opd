@@ -18,16 +18,16 @@ export default function PatientList() {
 
     useEffect(() => {
         axios.get("/api/patients").then((res) => setPatients(res.data));
-    },);
+    }, []);
 
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">Patient List</h1>
             <div className="flex gap-4 mb-4"> {/* Use flexbox for button layout */}
-                <Button onClick={() => router.push("/add-patient")}>
+                <Button className='cursor-pointer' onClick={() => router.push("/add-patient")}>
                     Add Patient
                 </Button>
-                <Button onClick={() => router.push("/dashboard")}>
+                <Button className='cursor-pointer' onClick={() => router.push("/dashboard")}>
                     Dashboard
                 </Button>
             </div>
