@@ -1,6 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { Input } from "@/components/ui/input"; // Import Shadcn Input component
+import { Button } from "@/components/ui/button"; // Import Shadcn Button component
+import { Label } from "@/components/ui/label"; //Import Shadcn Label component
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"; //Import Shadcn Card component
 
 export default function SignIn() {
     const router = useRouter();
@@ -26,31 +36,45 @@ export default function SignIn() {
     };
 
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold">Sign In</h1>
-            {error && <p className="text-red-500">{error}</p>}
-            <form onSubmit={handleSubmit} className="mt-4 space-y-4 max-w-md">
-                <input
-                    name="username"
-                    placeholder="Username"
-                    value={form.username}
-                    onChange={handleChange}
-                    className="border p-2 w-full"
-                    required
-                />
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    value={form.password}
-                    onChange={handleChange}
-                    className="border p-2 w-full"
-                    required
-                />
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2">
-                    Sign In
-                </button>
-            </form>
+        <div className="flex justify-center items-center h-screen">
+            <Card className="w-[350px]">
+                <CardHeader>
+                    <CardTitle>Sign In</CardTitle>
+                    <CardDescription>Enter your credentials to access your account.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    {error && <p className="text-red-500">{error}</p>}
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="grid w-full items-center gap-1.5">
+                            <Label htmlFor="username">Username</Label>
+                            <Input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Username"
+                                value={form.username}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="grid w-full items-center gap-1.5">
+                            <Label htmlFor="password">Password</Label>
+                            <Input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Password"
+                                value={form.password}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <Button type="submit" className="w-full">
+                            Sign In
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
         </div>
     );
 }
