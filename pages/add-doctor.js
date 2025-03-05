@@ -19,7 +19,7 @@ export default function AddDoctor() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await axios.post("/api/doctors", form);
-        router.push("/");
+        router.push("/dashboard");
     };
 
     return (

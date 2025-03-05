@@ -40,6 +40,8 @@ export default function ReceiptPage() {
         doc.text(`Final Fee: ₹${patient.finalFee}`, 20, 140);
 
         doc.save(`Receipt_${patient.opdNumber}.pdf`);
+
+        router.push("/patient-list");
     };
 
     return (

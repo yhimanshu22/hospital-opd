@@ -1,7 +1,7 @@
 // pages/api/auth/signup.js
 import connectDB from "../../../lib/db";
 import User from "../../../models/User";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {
     await connectDB();

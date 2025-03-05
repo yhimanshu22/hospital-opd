@@ -1,18 +1,43 @@
-// models/Patient.js
-import mongoose from "mongoose";
+// Example (models/Patient.js)
+import mongoose from 'mongoose';
 
 const PatientSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    age: { type: Number, required: true },
-    gender: { type: String, required: true },
-    contact: { type: String, required: true },
-    address: { type: String, required: true },
-    guardian: { type: String, required: false },
-    opdNumber: { type: String, required: true },
-    doctor: { type: mongoose.Schema.Types.ObjectId, ref: "Doctor", required: true },
-    discount: { type: Number, default: 0 },
-    finalFee: { type: Number, default: 0 },
-    date: { type: Date, default: Date.now },
+    name: String,
+    age: Number,
+    gender: String,
+    contact: String,
+    address: String,
+    guardian: String,
+    opdNumber: String,
+    doctor: { type: mongoose.Schema.Types.ObjectId, ref: 'Doctor' },
+    discount: Number,
+    finalFee: Number,
+    abhaNumber: String,
+    abhaAddress: String,
+    mrid: String,
+    pro: String,
+    allergy: String,
+    visitValidity: String,
+    priority: String,
+    caseType: String,
+    sittingLocation: String,
+    religion: String,
+    maritalStatus: String,
+    dob: Date,
+    city: String,
+    area: String,
+    nationality: String,
+    patientClass: String,
+    referredBy: String,
+    complaints: String,
+    empanelment: String,
+    cashPatient: Boolean,
+    appointmentBioReceipt: String,
+    registrationNo: String,
+    registrationType: String,
+    consultant: String,
+    department: String,
+    time: String,
 });
 
-export default mongoose.models.Patient || mongoose.model("Patient", PatientSchema);
+export default mongoose.models.Patient || mongoose.model('Patient', PatientSchema);

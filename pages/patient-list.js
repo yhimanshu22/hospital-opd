@@ -20,6 +20,12 @@ export default function PatientList() {
             >
                 Add Patient
             </button>
+            <button
+                className="bg-blue-500 text-white px-4 py-2 mb-4"
+                onClick={() => router.push("/dashboard")}
+            >
+                Dashboard
+            </button>
             <ul className="list-disc ml-6">
                 {patients.map((p) => (
                     <li key={p._id}>
