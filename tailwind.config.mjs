@@ -1,3 +1,4 @@
+import animate from 'tailwindcss-animate'
 export default defineConfig({
     content: [
         './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,5 +8,5 @@ export default defineConfig({
     theme: {
         extend: {},
     },
-    plugins: {}
+    plugins: { animate }
 });
