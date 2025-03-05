@@ -1,7 +1,16 @@
-// pages/add-doctor.js
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
 
 export default function AddDoctor() {
     const [form, setForm] = useState({
@@ -23,46 +32,68 @@ export default function AddDoctor() {
     };
 
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">Add Doctor</h1>
-            <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
-                <input
-                    name="name"
-                    placeholder="Name"
-                    value={form.name}
-                    onChange={handleChange}
-                    className="border p-2 w-full"
-                    required
-                />
-                <input
-                    name="department"
-                    placeholder="Department"
-                    value={form.department}
-                    onChange={handleChange}
-                    className="border p-2 w-full"
-                    required
-                />
-                <input
-                    name="contact"
-                    placeholder="Contact"
-                    value={form.contact}
-                    onChange={handleChange}
-                    className="border p-2 w-full"
-                    required
-                />
-                <input
-                    type="number"
-                    name="consultationFee"
-                    placeholder="Consultation Fee"
-                    value={form.consultationFee}
-                    onChange={handleChange}
-                    className="border p-2 w-full"
-                    required
-                />
-                <button className="bg-blue-500 text-white px-4 py-2" type="submit">
-                    Save
-                </button>
-            </form>
+        <div className="flex justify-center items-center h-screen">
+            <Card className="w-[350px]">
+                <CardHeader>
+                    <CardTitle>Add Doctor</CardTitle>
+                    <CardDescription>Enter doctor details.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="grid w-full items-center gap-1.5">
+                            <Label htmlFor="name">Name</Label>
+                            <Input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Name"
+                                value={form.name}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="grid w-full items-center gap-1.5">
+                            <Label htmlFor="department">Department</Label>
+                            <Input
+                                type="text"
+                                id="department"
+                                name="department"
+                                placeholder="Department"
+                                value={form.department}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="grid w-full items-center gap-1.5">
+                            <Label htmlFor="contact">Contact</Label>
+                            <Input
+                                type="text"
+                                id="contact"
+                                name="contact"
+                                placeholder="Contact"
+                                value={form.contact}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="grid w-full items-center gap-1.5">
+                            <Label htmlFor="consultationFee">Consultation Fee</Label>
+                            <Input
+                                type="number"
+                                id="consultationFee"
+                                name="consultationFee"
+                                placeholder="Consultation Fee"
+                                value={form.consultationFee}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <Button type="submit" className="w-full">
+                            Save
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
         </div>
     );
 }

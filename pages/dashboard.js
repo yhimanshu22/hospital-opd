@@ -56,6 +56,12 @@ export default function Dashboard() {
                 >
                     Add Patient
                 </button>
+                <button
+                    className="bg-green-500 text-white px-4 py-2"
+                    onClick={() => router.push("/patient-list")}
+                >
+                    List Patient
+                </button>
             </div>
 
             <h2 className="text-xl font-semibold mt-6 mb-2">Doctors List</h2>
