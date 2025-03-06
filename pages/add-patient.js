@@ -77,11 +77,22 @@ export default function AddPatient() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Form data before request:", form);
         try {
-            await axios.post("/api/patients", form);
+            const response = await axios.post("/api/patients", form);
+            console.log("API response:", response);
             router.push("/patient-list");
         } catch (error) {
             console.error("Error adding patient:", error);
+            if (error.response) {
+                console.log("Server response data:", error.response.data);
+                console.log("Server response status:", error.response.status);
+                console.log("Server response headers:", error.response.headers);
+            } else if (error.request) {
+                console.log("Request made but no response received:", error.request);
+            } else {
+                console.log("Error setting up the request:", error.message);
+            }
         }
     };
 
