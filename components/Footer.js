@@ -9,7 +9,7 @@ const Footer = () => {
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900">
                             {/* Replace with Hospital Name */}
-                            City Hospital
+                            Syam Children And Maternity Hospital
                         </h2>
                         <p className="mt-2 text-gray-600">
                             {/* Replace with Hospital Tagline */}
@@ -66,7 +66,7 @@ const Footer = () => {
                 {/* Copyright */}
                 <div className="mt-6 text-center border-t border-gray-200 pt-4 text-gray-500 text-sm">
                     {/* Replace with Hospital Name */}
-                    © {new Date().getFullYear()} City Hospital. All rights reserved.
+                    © {new Date().getFullYear()} Syam Children And Maternity Hospital. All rights reserved.
                 </div>
             </div>
         </footer>

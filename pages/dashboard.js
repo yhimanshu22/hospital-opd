@@ -18,7 +18,7 @@ export default function Dashboard() {
     const logout = async () => {
         try {
             await axios.post("/api/auth/logout");
-            router.push("/auth/signin");
+            router.push("/");
         } catch (error) {
             console.error("Logout failed:", error);
         }

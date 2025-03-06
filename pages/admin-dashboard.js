@@ -9,7 +9,7 @@ export default function AdminDashboard() {
     const logout = async () => {
         try {
             await axios.post("/api/auth/logout");
-            router.push("/auth/signin"); // Redirect to login page after logout
+            router.push("/"); // Redirect to login page after logout
         } catch (error) {
             console.error("Logout failed:", error);
         }
