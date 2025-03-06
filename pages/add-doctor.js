@@ -25,6 +25,10 @@ export default function AddDoctor() {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
+    const cancel = () => {
+        router.push('/dashboard')
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         await axios.post("/api/doctors", form);
@@ -88,10 +92,13 @@ export default function AddDoctor() {
                                 required
                             />
                         </div>
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-full cursor-pointer">
                             Save
                         </Button>
                     </form>
+                    <Button onClick={cancel} className="w-full bg-red-700  hover:bg-red-600 my-2  cursor-pointer">
+                        Cancel
+                    </Button>
                 </CardContent>
             </Card>
         </div>

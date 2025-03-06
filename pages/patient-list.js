@@ -53,6 +53,7 @@ export default function PatientList() {
                                 <Button
                                     variant="outline"
                                     size="sm"
+                                    className='cursor-pointer'
                                     onClick={() => router.push(`/receipt/${p._id}`)}
                                 >
                                     Print Receipt

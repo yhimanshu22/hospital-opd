@@ -85,6 +85,10 @@ export default function AddPatient() {
         }
     };
 
+    const cancel = () => {
+        router.push("/dashboard");
+    };
+
     return (
         <div className="flex w-full justify-center items-center h-screen">
             <Card className="w-full max-w-[1400px] p-6"> {/* Adjust card width as needed */}
@@ -477,7 +481,7 @@ export default function AddPatient() {
                             />
                         </div>
                         <div>
-                            <Label htmlFor="time">Time</Label>
+                            <Label htmlFor="time" >Time</Label>
                             <Input
                                 type="text"
                                 id="time"
@@ -499,10 +503,14 @@ export default function AddPatient() {
                             <Label htmlFor="cashPatient">Cash Patient</Label>
                         </div>
 
-                        <Button type="submit" className="col-span-2 w-full">
+
+                        <Button type="submit" className="col-span-2 cursor-pointer w-full">
                             Save
                         </Button>
                     </form>
+                    <Button onClick={cancel} className="bg-red-700  hover:bg-red-600 text-white font-semibold px-6 py-4 m-2 cursor-pointer rounded-lg shadow-md w-full">
+                        Cancel
+                    </Button>
                 </CardContent>
             </Card>
         </div>
