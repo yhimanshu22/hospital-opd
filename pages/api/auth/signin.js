@@ -2,9 +2,9 @@ import connectDB from "../../../lib/db";
 import User from "../../../models/User";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import cookie from "cookie";
+import { serialize } from "cookie"; // Use named import
 
-const JWT_SECRET = process.env.JWT_SECRET || "secret";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export default async function handler(req, res) {
     await connectDB();
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
 
         res.setHeader(
             "Set-Cookie",
-            cookie.serialize("token", token, {
+            serialize("_vercel_jwt", token, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV !== "development",
                 maxAge: 3600,
@@ -45,7 +45,6 @@ export default async function handler(req, res) {
             })
         );
 
-        // Include isAdmin in the JSON response
         res.status(200).json({ message: "Sign in successful", isAdmin: user.isAdmin });
     } catch (error) {
         res.status(500).json({ message: error.message });
